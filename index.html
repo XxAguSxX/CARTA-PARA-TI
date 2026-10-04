@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Para ti ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top, #fff8fa 0%, transparent 40%),
+        linear-gradient(135deg, #ffdce7, #fff1f5, #ffd0df);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #4a2630;
+      overflow-x: hidden;
+      padding: 25px 0;
+    }
+
+    /* =========================
+       CORAZONES FLOTANDO
+       ========================= */
+
+    .heart {
+      position: fixed;
+      bottom: -60px;
+      font-size: 25px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0;
+      animation: subir 9s linear infinite;
+    }
+
+    .heart:nth-child(1) {
+      left: 8%;
+      animation-delay: 0s;
+    }
+
+    .heart:nth-child(2) {
+      left: 25%;
+      animation-delay: 2s;
+    }
+
+    .heart:nth-child(3) {
+      left: 45%;
+      animation-delay: 4s;
+    }
+
+    .heart:nth-child(4) {
+      left: 65%;
+      animation-delay: 1s;
+    }
+
+    .heart:nth-child(5) {
+      left: 85%;
+      animation-delay: 3s;
+    }
+
+    .heart:nth-child(6) {
+      left: 55%;
+      animation-delay: 6s;
+    }
+
+    @keyframes subir {
+      0% {
+        transform: translateY(0) scale(0.7) rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(-115vh) scale(1.5) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    /* =========================
+       CONTENEDOR
+       ========================= */
+
+    .contenedor {
+      width: 92%;
+      max-width: 680px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .carta-container {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 30px;
+      padding: 35px 28px;
+      box-shadow:
+        0 20px 60px rgba(130, 35, 65, 0.20),
+        0 5px 20px rgba(130, 35, 65, 0.10);
+
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    /* =========================
+       PORTADA
+       ========================= */
+
+    #portada {
+      text-align: center;
+      padding: 25px 5px;
+    }
+
+    .corazon-grande {
+      font-size: 75px;
+      margin-bottom: 15px;
+      animation: latido 1.5s infinite;
+    }
+
+    @keyframes latido {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    .titulo {
+      color: #c62f5d;
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+
+    .subtitulo {
+      font-family: Arial, sans-serif;
+      color: #777;
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .boton {
+      border: none;
+      background: linear-gradient(135deg, #d83d68, #b92150);
+      color: white;
+
+      padding: 16px 32px;
+      border-radius: 35px;
+
+      font-size: 18px;
+      font-family: Arial, sans-serif;
+
+      cursor: pointer;
+
+      box-shadow: 0 8px 25px rgba(185, 33, 80, 0.3);
+
+      transition: all 0.3s ease;
+    }
+
+    .boton:hover {
+      transform: scale(1.06);
+      box-shadow: 0 12px 30px rgba(185, 33, 80, 0.4);
+    }
+
+    /* =========================
+       CARTA
+       ========================= */
+
+    #carta {
+      display: none;
+      animation: aparecer 1.2s ease;
+    }
+
+    #carta.visible {
+      display: block;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .decoracion {
+      text-align: center;
+      color: #d33b65;
+      font-size: 24px;
+      margin-bottom: 10px;
+      letter-spacing: 8px;
+    }
+
+    .titulo-carta {
+      text-align: center;
+      color: #c62f5d;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .texto {
+      font-size: 19px;
+      line-height: 1.9;
+      text-align: left;
+    }
+
+    .texto p {
+      margin-bottom: 23px;
+    }
+
+    .frase {
+      margin: 35px 5px;
+      padding: 25px 20px;
+
+      border-left: 4px solid #d33b65;
+      background: #fff2f6;
+
+      border-radius: 0 15px 15px 0;
+
+      color: #a6294e;
+      font-size: 21px;
+      line-height: 1.7;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .final {
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .final-corazon {
+      font-size: 45px;
+      margin-bottom: 15px;
+      animation: latido 1.5s infinite;
+    }
+
+    .firma {
+      font-size: 23px;
+      color: #c62f5d;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .despedida {
+      font-size: 18px;
+      color: #777;
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       BOTÓN VOLVER
+       ========================= */
+
+    .volver {
+      display: block;
+      margin: 35px auto 0;
+
+      background: transparent;
+      color: #c62f5d;
+
+      border: 1px solid #c62f5d;
+      box-shadow: none;
+
+      font-size: 14px;
+      padding: 11px 22px;
+    }
+
+    .volver:hover {
+      background: #fff0f4;
+    }
+
+    /* =========================
+       MÓVIL
+       ========================= */
+
+    @media (max-width: 600px) {
+
+      body {
+        padding: 15px 0;
+      }
+
+      .carta-container {
+        width: 100%;
+        padding: 28px 20px;
+        border-radius: 25px;
+      }
+
+      .corazon-grande {
+        font-size: 65px;
+      }
+
+      .titulo {
+        font-size: 34px;
+      }
+
+      .titulo-carta {
+        font-size: 30px;
+      }
+
+      .texto {
+        font-size: 17px;
+        line-height: 1.85;
+      }
+
+      .frase {
+        font-size: 19px;
+      }
+
+      .firma {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CORAZONES -->
+  <div class="heart">❤️</div>
+  <div class="heart">💕</div>
+  <div class="heart">💗</div>
+  <div class="heart">💖</div>
+  <div class="heart">❤️</div>
+  <div class="heart">💞</div>
+
+
+  <div class="contenedor">
+
+    <div class="carta-container">
+
+      <!-- =========================
+           PORTADA
+           ========================= -->
+
+      <div id="portada">
+
+        <div class="corazon-grande">
+          ❤️
+        </div>
+
+        <h1 class="titulo">
+          Para ti
+        </h1>
+
+        <p class="subtitulo">
+          Hay cosas que a veces son demasiado grandes
+          para decirlas en unas pocas palabras...
+          <br><br>
+          Por eso hice esto para ti.
+        </p>
+
+        <button class="boton" onclick="abrirCarta()">
+          💌 Abrir mi carta
+        </button>
+
+      </div>
+
+
+      <!-- =========================
+           CARTA
+           ========================= -->
+
+      <div id="carta">
+
+        <div class="decoracion">
+          ❤️ ✦ ❤️
+        </div>
+
+        <h2 class="titulo-carta">
+          Para la persona que hace mis días más bonitos
+        </h2>
+
+
+        <div class="texto">
+
+          <p>
+            No sé exactamente en qué momento empezaste a
+            convertirte en alguien tan importante para mí.
+            Quizá fue en una conversación cualquiera, en una
+            de esas veces que nos quedamos hablando sin darnos
+            cuenta de cuánto tiempo había pasado. Quizá fue
+            con uno de tus abrazos, con uno de tus besos, con
+            alguna de esas sonrisas tuyas que se me quedaron
+            guardadas sin que yo siquiera me diera cuenta.
+          </p>
+
+          <p>
+            Solo sé que, poco a poco, empezaste a ocupar un
+            lugar en mi corazón que hoy ya no podría imaginar
+            vacío.
+          </p>
+
+          <p>
+            Y si tuviera que explicarte todo lo que significas
+            para mí, probablemente necesitaría muchísimo más
+            que una carta, porque hay sentimientos que no caben
+            fácilmente en palabras.
+          </p>
+
+          <p>
+            Pero quiero intentarlo.
+          </p>
+
+          <p>
+            Quiero que sepas que <strong>cada momento contigo
+            significa muchísimo para mí.</strong>
+          </p>
+
+          <p>
+            Cada día que paso a tu lado se convierte en un
+            recuerdo que quiero guardar. Incluso los momentos
+            más sencillos, esos que quizá para cualquiera serían
+            normales, para mí tienen algo especial simplemente
+            porque estás tú.
+          </p>
+
+          <p>
+            Me gusta estar contigo.
+          </p>
+
+          <p>
+            Me gusta compartir tiempo contigo. Me gusta poder
+            mirarte y pensar que tengo la suerte de estar
+            viviendo ese momento a tu lado.
+          </p>
+
+          <p>
+            Me gustan nuestras conversaciones, nuestras risas,
+            nuestras tonterías, esos momentos en los que no
+            necesitamos hacer nada extraordinario para sentirnos
+            bien.
+          </p>
+
+          <p>
+            Porque contigo entendí que la felicidad también
+            puede estar en las cosas pequeñas.
+          </p>
+
+          <p>
+            Puede estar en sentarnos juntos.
+            En caminar a tu lado.
+            En escuchar tu voz.
+            En mirarte mientras hablas.
+            En reírnos por cualquier tontería.
+            En quedarnos en silencio sin que ese silencio
+            resulte incómodo.
+            En saber que estás ahí.
+          </p>
+
+          <p>
+            Y hay algo que nunca voy a dejar de valorar:
+            <strong>tus abrazos.</strong>
+          </p>
+
+          <p>
+            No sé si tú sabes lo mucho que significan para mí.
+          </p>
+
+          <p>
+            Un abrazo tuyo puede cambiar completamente mi día.
+            Hay algo en tenerte cerca, sentir tus brazos
+            alrededor de mí y poder quedarme unos segundos así
+            que me hace sentir una tranquilidad que no sé
+            explicar.
+          </p>
+
+          <p>
+            Como si por un momento todo lo demás dejara de
+            importar.
+          </p>
+
+          <p>
+            Como si el mundo pudiera esperar.
+          </p>
+
+          <p>
+            Como si en ese instante lo único que necesitara
+            fuera estar ahí contigo.
+          </p>
+
+          <p>
+            Y podría abrazarte durante muchísimo tiempo.
+          </p>
+
+          <p>
+            Porque hay abrazos que simplemente abrazan y hay
+            otros que hacen sentir a uno que está exactamente
+            donde quiere estar.
+          </p>
+
+          <p>
+            Los tuyos son de esos.
+          </p>
+
+          <p>
+            Y luego están tus besos.
+          </p>
+
+          <p>
+            Esos pequeños momentos que quizá parecen simples,
+            pero que para mí tienen un significado enorme.
+          </p>
+
+          <p>
+            Cada beso tuyo se queda conmigo.
+          </p>
+
+          <p>
+            A veces incluso después de despedirnos, me quedo
+            pensando en ese momento, en tu cercanía, en tu
+            sonrisa después de besarme y en lo bonito que se
+            siente saber que alguien como tú forma parte de mi
+            vida.
+          </p>
+
+          <p>
+            No sé cómo explicarlo sin sonar demasiado cursi,
+            pero tus besos tienen algo que me hace querer
+            detener el tiempo.
+          </p>
+
+          <p>
+            Quisiera poder guardar algunos momentos contigo en
+            una pequeña cajita y abrirla cada vez que te extraño.
+          </p>
+
+          <div class="frase">
+            Guardaría ahí cada abrazo, cada beso, cada mirada,
+            cada risa, cada conversación y cada momento en el
+            que estuvimos juntos sin saber que algún día
+            íbamos a extrañar precisamente ese instante.
+          </div>
+
+          <p>
+            Porque contigo he aprendido que uno no siempre se
+            da cuenta de lo especiales que son las cosas
+            mientras están sucediendo.
+          </p>
+
+          <p>
+            A veces simplemente estás conmigo, estamos hablando,
+            riéndonos o abrazándonos, y en ese momento no pienso
+            en nada más.
+          </p>
+
+          <p>
+            Pero después, cuando estamos lejos, me doy cuenta
+            de cuánto significó.
+          </p>
+
+          <p>
+            Y entonces te extraño.
+          </p>
+
+          <p>
+            Extraño tu voz.
+            Extraño tu forma de hablar.
+            Extraño tu manera de mirarme.
+            Extraño tus abrazos.
+            Extraño tus besos.
+            Extraño incluso esas pequeñas cosas que haces sin
+            darte cuenta.
+          </p>
+
+          <p>
+            Y es ahí cuando entiendo todavía más lo importante
+            que eres para mí.
+          </p>
+
+          <p>
+            Porque no extraño solamente estar contigo.
+          </p>
+
+          <p>
+            <strong>Te extraño a ti.</strong>
+          </p>
+
+          <p>
+            A la persona que eres.
+            A tu forma de ser.
+            A esa manera tan tuya de hacer que un día cualquiera
+            termine siendo un día bonito.
+          </p>
+
+          <p>
+            A esa persona que consiguió entrar en mi vida y,
+            sin pedir permiso, empezó a formar parte de mis
+            pensamientos, de mis planes y de mis recuerdos
+            favoritos.
+          </p>
+
+          <p>
+            Y quiero agradecerte por eso.
+          </p>
+
+          <p>
+            Gracias por cada momento que me has regalado.
+            Gracias por cada abrazo que me hizo sentir querido.
+            Gracias por cada beso.
+            Gracias por cada sonrisa.
+            Gracias por cada vez que me escuchaste.
+            Gracias por cada conversación.
+            Gracias por cada instante en el que elegiste
+            quedarte a mi lado.
+            Gracias por permitirme conocerte un poco más cada
+            día.
+          </p>
+
+          <p>
+            Y sobre todo, gracias por dejarme quererte.
+          </p>
+
+          <p>
+            Porque quererte se ha convertido en una de las
+            cosas más bonitas que me han pasado.
+          </p>
+
+          <p>
+            No quiero que pienses que solamente me importan
+            los momentos grandes.
+          </p>
+
+          <p>
+            Para mí, muchas veces, los momentos más importantes
+            son los pequeños.
+          </p>
+
+          <p>
+            Ese instante en que te miro sin que te des cuenta.
+            Cuando sonríes y yo termino sonriendo también.
+            Cuando nuestras manos se encuentran.
+            Cuando te acercas a mí.
+            Cuando me abrazas sin decir nada.
+            Cuando nos despedimos y ninguno de los dos quiere
+            que el momento termine.
+          </p>
+
+          <p>
+            Cuando te veo después de extrañarte y siento esa
+            felicidad difícil de explicar.
+          </p>
+
+          <p>
+            Esas cosas son las que quiero recordar.
+          </p>
+
+          <p>
+            Porque algún día, cuando mire hacia atrás, estoy
+            seguro de que no serán las cosas materiales las que
+            más recordaré.
+          </p>
+
+          <p>
+            Voy a recordar <strong>cómo me sentía cuando estaba
+            contigo.</strong>
+          </p>
+
+          <p>
+            Voy a recordar tu sonrisa.
+            Tu voz.
+            Tus abrazos.
+            Tus besos.
+            Las veces que nos reímos.
+            Las veces que nos quedamos hablando.
+            Los días buenos.
+            Incluso los días difíciles, porque hasta esos tienen
+            valor cuando se viven junto a alguien que realmente
+            importa.
+          </p>
+
+          <p>
+            Y tú importas.
+          </p>
+
+          <p>
+            <strong>Muchísimo.</strong>
+          </p>
+
+          <p>
+            Más de lo que quizá te digo.
+            Más de lo que a veces sé demostrar.
+          </p>
+
+          <p>
+            Eres una persona que quiero cuidar.
+            Una persona cuya felicidad me importa.
+            Una persona a la que quiero ver cumplir sus sueños.
+          </p>
+
+          <p>
+            Quiero verte crecer, conseguir todo aquello que
+            deseas y sentirte orgullosa de ti misma.
+          </p>
+
+          <p>
+            Quiero estar ahí para aplaudir tus logros y también
+            para abrazarte cuando las cosas no salgan como
+            esperabas.
+          </p>
+
+          <p>
+            Quiero que cuando tengas un día horrible sepas que
+            tienes a alguien con quien puedes hablar.
+          </p>
+
+          <p>
+            Y cuando tengas un día increíble, quiero ser una de
+            las personas a las que quieras contárselo.
+          </p>
+
+          <p>
+            Porque eso es lo que significa para mí tenerte en
+            mi vida.
+          </p>
+
+          <p>
+            No solamente quiero compartir contigo los momentos
+            bonitos.
+          </p>
+
+          <p>
+            Quiero estar presente también en los días normales,
+            en los días complicados, en los días en los que
+            simplemente necesites compañía.
+          </p>
+
+          <p>
+            Quiero compartir contigo mucho más que momentos.
+          </p>
+
+          <p>
+            Quiero compartir recuerdos.
+            Historias.
+            Risas.
+            Planes.
+            Sueños.
+            Días.
+          </p>
+
+          <p>
+            No sé qué nos espera más adelante, pero sí sé que
+            cada momento que tengo contigo es algo que agradezco
+            profundamente.
+          </p>
+
+          <p>
+            Y si pudiera pedirle algo al tiempo, sería que vaya
+            un poquito más despacio cuando estoy contigo.
+          </p>
+
+          <p>
+            Que me permita disfrutar un poco más de cada abrazo.
+            De cada beso.
+            De cada mirada.
+            De cada tarde.
+            De cada noche.
+            De cada conversación.
+          </p>
+
+          <p>
+            Porque cuando estoy contigo, el tiempo parece pasar
+            demasiado rápido.
+          </p>
+
+          <p>
+            Y cuando te vas, parece que tarda demasiado en
+            volver a encontrarnos.
+          </p>
+
+          <p>
+            Qué curioso es eso.
+          </p>
+
+          <p>
+            Pero supongo que así se siente cuando alguien
+            realmente importa.
+          </p>
+
+          <p>
+            Tú haces que mis días tengan algo diferente.
+          </p>
+
+          <p>
+            Hay días en los que todo puede estar saliendo mal,
+            pero basta con saber que voy a verte para que algo
+            dentro de mí cambie.
+          </p>
+
+          <p>
+            Y hay días que ya son buenos simplemente porque
+            estás tú.
+          </p>
+
+          <p>
+            Eso es lo que significas para mí.
+          </p>
+
+          <p>
+            No eres solamente alguien con quien paso tiempo.
+          </p>
+
+          <p>
+            <strong>Eres alguien con quien quiero seguir
+            acumulando momentos.</strong>
+          </p>
+
+          <p>
+            Alguien que quiero seguir conociendo.
+            Alguien a quien quiero seguir descubriendo incluso
+            cuando crea que ya conozco cada parte de ti.
+          </p>
+
+          <p>
+            Porque sé que siempre habrá algo nuevo que aprender
+            de ti.
+          </p>
+
+          <p>
+            Una nueva sonrisa.
+            Una nueva historia.
+            Una nueva costumbre.
+            Una nueva razón para quererte.
+          </p>
+
+          <p>
+            Y si algún día llegas a preguntarme qué es lo que
+            más me gusta de ti, probablemente no pueda darte
+            una sola respuesta.
+          </p>
+
+          <p>
+            Porque no es una cosa.
+          </p>
+
+          <p>
+            <strong>Eres tú completa.</strong>
+          </p>
+
+          <p>
+            Tu forma de ser.
+            Tu manera de querer.
+            Tu forma de mirarme.
+            Tu sonrisa.
+            Tus abrazos.
+            Tus besos.
+            Tu voz.
+            Tus ocurrencias.
+            Tus pequeños detalles.
+          </p>
+
+          <p>
+            Hasta esas cosas que quizá tú no consideras
+            importantes.
+          </p>
+
+          <p>
+            Todo eso forma parte de la persona de la que me
+            enamoré.
+          </p>
+
+          <p>
+            Y si pudiera volver al primer día en que te conocí,
+            sabiendo todo lo que sé ahora, volvería a acercarme
+            a ti.
+          </p>
+
+          <p>
+            Volvería a elegir conocerte.
+            Volvería a elegir cada conversación.
+            Cada abrazo.
+            Cada beso.
+            Cada momento.
+          </p>
+
+          <p>
+            Porque al final, entre tantas personas que pueden
+            aparecer en nuestra vida, tú terminaste siendo una
+            de esas personas que uno no quiere perder.
+          </p>
+
+          <p>
+            Y quiero que nunca dudes de lo importante que eres
+            para mí.
+          </p>
+
+          <p>
+            Si algún día te sientes insuficiente, recuerda que
+            para mí eres muchísimo más de lo que crees.
+          </p>
+
+          <p>
+            Si algún día sientes que nadie nota tus esfuerzos,
+            recuerda que yo sí los veo.
+          </p>
+
+          <p>
+            Si algún día estás triste, déjame abrazarte.
+          </p>
+
+          <p>
+            Si algún día tienes miedo, déjame quedarme contigo.
+          </p>
+
+          <p>
+            Y si algún día simplemente necesitas sentirte
+            querida, déjame recordarte todo lo que significas
+            para mí.
+          </p>
+
+          <p>
+            Porque yo no quiero quererte solamente cuando todo
+            esté bien.
+          </p>
+
+          <p>
+            Quiero quererte también en los días difíciles.
+            En los días en que estés cansada.
+            En los días en que no tengas ganas de sonreír.
+            En los días en que necesites un poco más de cariño.
+          </p>
+
+          <p>
+            Quiero ser ese lugar donde puedas sentirte tranquila.
+            Donde puedas ser tú sin miedo.
+            Donde puedas descansar de todo.
+          </p>
+
+          <p>
+            Y quizá no siempre sepa hacerlo perfecto.
+            Quizá me equivoque.
+            Quizá algunas veces no encuentre las palabras
+            correctas.
+          </p>
+
+          <p>
+            Pero quiero que tengas algo muy claro:
+          </p>
+
+          <div class="frase">
+            Te quiero muchísimo. ❤️
+            <br><br>
+            Y no solamente por lo que haces por mí.
+            Te quiero por quién eres.
+          </div>
+
+          <p>
+            Te quiero por la persona que eres cuando nadie te
+            está mirando.
+            Por tu corazón.
+            Por tus sueños.
+            Por tus sentimientos.
+            Por todo aquello que te hace ser tú.
+          </p>
+
+          <p>
+            Y quiero que sepas que tenerte en mi vida es algo
+            que valoro muchísimo.
+          </p>
+
+          <p>
+            Porque entre todas las cosas que podrían haber
+            sucedido, entre todos los caminos que podríamos
+            haber tomado, la vida hizo que nuestros caminos se
+            encontraran.
+          </p>
+
+          <p>
+            Y yo no quiero dar eso por sentado.
+          </p>
+
+          <p>
+            Quiero aprovechar cada día.
+            Cada oportunidad de abrazarte.
+            Cada oportunidad de besarte.
+            Cada oportunidad de decirte cuánto te quiero.
+          </p>
+
+          <p>
+            Porque nunca quiero que pienses que no eres
+            importante.
+          </p>
+
+          <p>
+            <strong>Nunca.</strong>
+          </p>
+
+          <p>
+            Si pudiera resumir todo lo que siento en una sola
+            frase, sería esta:
+          </p>
+
+          <div class="frase">
+            Eres una de las partes más bonitas de mi vida y una
+            de las personas que más quiero conservar en ella.
+          </div>
+
+          <p>
+            Y mientras pueda seguir compartiendo días contigo,
+            voy a agradecer cada uno.
+          </p>
+
+          <p>
+            Voy a guardar cada abrazo.
+            Voy a recordar cada beso.
+            Voy a cuidar cada recuerdo.
+            Y voy a seguir queriéndote de todas las formas
+            bonitas que encuentre.
+          </p>
+
+          <p>
+            Porque si algo tengo claro es que no quiero que seas
+            solamente un recuerdo bonito de mi vida.
+          </p>
+
+          <p>
+            <strong>Quiero seguir viviendo momentos contigo.</strong>
+          </p>
+
+          <p>
+            Quiero más días.
+            Más abrazos.
+            Más besos.
+            Más risas.
+            Más conversaciones.
+            Más tardes juntos.
+            Más noches hablando.
+            Más fotografías.
+            Más recuerdos.
+            Más historias que algún día podamos contar.
+          </p>
+
+          <p>
+            Quiero seguir mirándote y sintiendo esa felicidad
+            de saber que eres tú.
+          </p>
+
+          <p>
+            Tú, la persona que hace que mi corazón se sienta
+            un poquito más tranquilo.
+          </p>
+
+          <p>
+            Tú, la persona que convierte momentos simples en
+            recuerdos especiales.
+          </p>
+
+          <p>
+            Tú, la persona que quiero tener cerca.
+          </p>
+
+          <p>
+            Y si algún día vuelves a leer esta carta, quiero
+            que recuerdes una sola cosa:
+          </p>
+
+          <div class="frase">
+            Te quiero por todo lo que eres, por todo lo que
+            hemos vivido y por todo lo bonito que todavía
+            podemos vivir. ❤️
+          </div>
+
+        </div>
+
+
+        <!-- FINAL -->
+
+        <div class="final">
+
+          <div class="final-corazon">
+            ❤️
+          </div>
+
+          <div class="firma">
+            Gracias por cada abrazo.<br>
+            Gracias por cada beso.<br>
+            Gracias por cada día.<br>
+            Gracias por cada sonrisa.<br>
+            Gracias por existir en mi vida.
+          </div>
+
+          <p class="despedida">
+            Y gracias por hacer que quererte sea una de las
+            cosas más bonitas que me ha pasado.
+          </p>
+
+          <p class="despedida">
+            Te quiero hoy, te quiero mañana y quiero seguir
+            encontrando nuevas razones para quererte cada día.
+            ❤️
+          </p>
+
+        </div>
+
+
+        <button class="boton volver" onclick="volverInicio()">
+          ❤️ Volver al inicio
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function abrirCarta() {
+
+      document.getElementById("portada").style.display = "none";
+
+      document.getElementById("carta").classList.add("visible");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    function volverInicio() {
+
+      document.getElementById("carta").classList.remove("visible");
+
+      document.getElementById("portada").style.display = "block";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>
